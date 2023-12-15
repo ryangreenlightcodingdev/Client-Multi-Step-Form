@@ -1,12 +1,15 @@
-import RightContainer from "./RightContainer"
-import LeftContainer from "./LeftContainer"
+import { useState } from "react";
+import "./styles.css";
+import LeftContainer from "./LeftContainer";
+import RightImage from "./RightImage";
 
-export default function App(){
-  //note: our stage will be contained here
-    //and passed down to botho of our containers
-  return <div style={{display:"flex"}}>
-  <LeftContainer/>
-  <RightContainer/>
-  
-  </div>
+export default function App() {
+  const [stage, setStage] = useState(0);
+
+  return (
+    <div className="App">
+      <LeftContainer stage={stage} setStage={setStage} />
+      <RightImage stage={stage} />
+    </div>
+  );
 }
